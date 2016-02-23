@@ -1,29 +1,32 @@
 $(document).ready(function(){
   var baseUrlGoogle = 'https://maps.googleapis.com/maps/api/geocode/json?address=';
-  
+  var baseUrlForcast = 'https://api.forecast.io/forecast/'
+
   var name = "Your Name";
 //  $('#get-weather').on('click', getWeather);
-  $('#get-weather').on('click', showInfo);
+  $('#get-weather').on('click', getCoordinates);
 
-  function buildUrl(city,state){
-    return baseUrl + apiKey+'/'+lat+','+lon;
+  function buildUrlGoogle(city){
+    return baseUrlGoogle + city;
+  }
+  function buildUrlForecast(lat, lon){
+    return baseUrlForecast + apiKeyForecast+'/'+lat+','+lon;
   }
 
-  function getWeather(){
-    var weatherLayer = new google.maps.weather.WeatherLayer({
-  temperatureUnits: google.maps.weather.TemperatureUnit.FAHRENHEIT
-});
-    var lat = $('#city').val();
-    var lon = $('#state').val();
-    var options = {
-      url: buildUrl(city, state),
-      dataType: 'jsonp',
-      success: successHandler,
-      error: errorHandler
-    };
-
-    $.ajax(options);
-  }
+//   function getWeather(){
+//     var weatherLayer = new google.maps.weather.WeatherLayer({
+//   temperatureUnits: google.maps.weather.TemperatureUnit.FAHRENHEIT
+// });
+//     var lat = $('#city').val();
+//     var lon = $('#state').val();
+//     var options = {
+//       url: buildUrl(city, state),
+//       dataType: 'jsonp',
+//       success: successHandler,
+//       error: errorHandler
+//     };
+  //   $.ajax(options);
+  // }
 
 
   function successHandler(data){
@@ -35,31 +38,31 @@ $(document).ready(function(){
     console.log(err);
   }
 
-      function showInfo(){
-        var city = $('#').val();
-        var state = $('#').val();
+      function getCoordinates(){
+        var city = $('#city-zip').val();
+        console.log("city: ",city);
         var ajaxOptions = {
-              url: buildUrl(city,state),
-              dataType: 'jsonp',
-              success: showInfoSuccess,
+              url: buildUrlGoogle(city),
+            //dataType: 'jsonp',
+              success: getWeatherInfo,
               error: errorHandler
             };
                   $.ajax(ajaxOptions);
     }
 
-    function showInfoSuccess(data){
-      console.log(data);
-      var source= $('#info').html();
-      var template= Handlebars.compile(source);
-      var extractedData = {
-        City: data.City,
-
-        icon: data.currently.icon,
-          summary:data.currently.summary,
-            time:moment(data.currently.time).format('MMMM Do YYYY, h:mm:ss a')
-
-        };
-  var html = template(extractedData);
-  $('#test-output').html(html);
-  }
+    function getWeatherInfo(data){
+      var lat = data.results[0].geometry.location.lat;
+      var lon = data.results[0].geometry.location.lng;
+      console.log("lat: ",lat);
+      console.log("lon: ",lon);
+      var options = {
+        url: buildUrlForecast(lat,lon),
+        dataType: 'jsonp',
+        success: successHandlerShowWeather,
+        error: errorHandler,
+      }
+      $.ajax(options);
+      function successHandlerShowWeather(data){
+        // this will put the results in the html
+      }
 });

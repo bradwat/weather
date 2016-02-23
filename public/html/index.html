@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Go outside, and play? Or, binge on Netflix?</title>
@@ -8,27 +9,35 @@
 <script src="https://code.jquery.com/jquery-1.12.0.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.js"></script>
+<script type="text/javascript src="https://maps.googleapis.com/maps/api/js?client=85363bd462c48af1c023d9973f0b6c62></script>
+
+</head>
 <body>
+
   <header><h1>Go outside? Or, Stay in, and stream???</h1></header>
+  <IMG id="hdimg" SRC="images/cloudy.jpg">
   <div class='container'>
     <div class='row'>
       <div class='form-group'>
-          <lable><h3>City/zip</h3></lable>
-        <input type="text" class='form-control' id='City/zip' name='city/zip'>
+        <label><h3>City/zip</h3></label>
+        <input type="text" class='form-control' id='city-zip' name='city-zip'>
       </div>
-        <button class="btn btn-default" id='netflix-binge'>Veg Out?</button>
-      </div>
-      <div id="map"></div>
+      <button class="btn btn-default" id='get-weather'>Veg Out?</button>
+    </div>
+    <div id="map"></div>
+    <div id="output"></div>
+
 <script>
      function initMap() {
       var mapDiv = document.getElementById('map');
        var map = new google.maps.Map(mapDiv, {
-         center: {lat: 44.540, lng: -78.546},
+         center: {lat: 29, lng: -82},
          zoom: 8
                 });
      }
    </script>
-   <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"
+
+      <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"
         async defer></script>
           <hr>
       <div class='row'>
@@ -93,7 +102,9 @@
   </div>
   <div class="row">
       <div class="col-md-8 col-md-offset-2">
+
         <p><em>{{summary}}</em><p>
+
       </div>
     </div>
 </body>

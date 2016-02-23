@@ -1,37 +1,33 @@
+#img-src{
+  padding-right: 50px;
+}
+
 
 body
 {
     color:red;
-    background-color: black;
+    background-color:black ;
     background-origin: padding-box;
     border:10px;
-
-
-
-
 }
 h1{
   font-family:Graphique-AR;
   text-align: center;
   text-shadow: 2px 2px #ffffff;
   font-size: 70px;
-
-
 }
-#jpg{
 
-  background-image:url("../images/tv.jpg");
-background-position:center bottom;
-background-repeat: no-repeat;
 
-}
-button#netflix-binge{
+
+
+button#get-weather{
   background-color:red;
   font-weight: bolder;
   }
 
 #map{
-  width: 750px;
+  width: 1150px;
   height: 400px;
   background-color: white;
+
 }
