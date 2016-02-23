@@ -1,5 +1,5 @@
 #img-src{
-  padding-right: 50px;
+
 }
 
 
@@ -9,6 +9,9 @@ body
     background-color:black ;
     background-origin: padding-box;
     border:10px;
+}
+#hdimg {
+  
 }
 h1{
   font-family:Graphique-AR;

@@ -1,6 +1,6 @@
 $(document).ready(function(){
   var baseUrlGoogle = 'https://maps.googleapis.com/maps/api/geocode/json?address=';
-  var baseUrlForcast = 'https://api.forecast.io/forecast/'
+  var baseUrlForecast = 'https://api.forecast.io/forecast/'
 
   var name = "Your Name";
 //  $('#get-weather').on('click', getWeather);
@@ -62,7 +62,17 @@ $(document).ready(function(){
         error: errorHandler,
       }
       $.ajax(options);
+    }
       function successHandlerShowWeather(data){
         // this will put the results in the html
+        var source = $('#weather-results').html();
+        var template = Handelbars.compile(source);
+        var extractedData = {
+          city: "need to fix",
+          summary: data.currently.summary,
+          time: data.currently.time,
+        };
+        var html = template(extractedData);
+        $('#output').html(html);
       }
 });
