@@ -1,68 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
-  <title>Go outside, and play? Or, binge on Netflix?</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="css/main.css">
-<script src="https://code.jquery.com/jquery-1.12.0.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.js"></script>
-<script type="text/javascript src="https://maps.googleapis.com/maps/api/js?client=85363bd462c48af1c023d9973f0b6c62></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <script src="https://code.jquery.com/jquery-1.12.0.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.js"></script>
+  <script src=""></script>
+  <title>GO OUTSIDE? OR,STAY IN,AND STREAM?</title>
 
 </head>
 <body>
+  <header><h1>GO OUTSIDE??? OR STAY IN AND,STREAM???</h1></header>
+  <button class="js-geolocation" style="display: none;">Use Your Location</button>
+  <IMG id="hdimg" SRC="images/mountain.jpg">
+    <IMG id="hdimg" SRC="images/cloudy.jpg">
 
-  <header><h1>Go outside? Or, Stay in, and stream???</h1></header>
-  <IMG id="hdimg" SRC="images/cloudy.jpg">
-  <div class='container'>
-    <div class='row'>
-      <div class='form-group'>
-        <label><h3>City/zip</h3></label>
-        <input type="text" class='form-control' id='city-zip' name='city-zip'>
+      <div class='container'>
+        <div class='row'>
+          <div class='form-group'>
+            <label><h3>City/zip</h3></label>
+            <input type="text" class='form-control' id='city-zip' name='city-zip'>
+          </div>
+          <button class="btn btn-default" id='get-weather'>Veg Out?</button>
+        </div>
+        <div id="map"></div>
+        <div id="output"></div>
+
+
       </div>
-      <button class="btn btn-default" id='get-weather'>Veg Out?</button>
     </div>
-    <div id="map"></div>
-    <div id="output"></div>
   </div>
 
+</div>
+
 <script>
-     function initMap() {
-      var mapDiv = document.getElementById('map');
-       var map = new google.maps.Map(mapDiv, {
-         center: {lat: 29, lng: -82},
-         zoom: 8
-                });
-     }
-   </script>
-   <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"
-            async defer></script>
+function initMap() {
+  var mapDiv = document.getElementById('map');
+  var map = new google.maps.Map(mapDiv, {
+    center: {lat: 29, lng: -82},
+    zoom: 8
+  });
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?callback=initMap"
+async defer></script>
 
 
-  <script id='weather-results' type='text/x-handlebars-template'>
-      <div class='row'>
-        <h3>Position: ({{City}})</h3>
+<script id='weather-results' type='text/x-handlebars-template'>
+  <div class="container">
+    <div class="row City">
+        <div class="col-md-2"><h4>City</h4>{{ city }}</div>
       </div>
-      <div class="row">
-        <div class="col-md 6">
-          <img src= "images/{{ icon }}.jpg" alt={{icon}} class="img-responsive">
-        </div>
+            <div class="row Summary">
+        <div class="col-md-2"><h4>Summary</h4>{{ summary }}</div>
+    </div>
+    <div class="row Time">
+        <div class="col-md-1">{{ time }}</div>
+    </div>
+    <div class="row percipitationProbability">
+        <div class="col-md-1">{{ percipitationProbability }}</div>
+    </div>
+    <div class="row percipitationIntensity">
+        <div class="col-md-1">{{ percipitationIntensity }}</div>
+    </div>
+    <div class="row temprature">
+        <div class="col-md-1">{{ temprature }}</div>
+    </div>
+    <div class="row humidity">
+        <div class="col-md-1">{{ humidity }}</div>
+    </div>
+    <div class="visibility">
+        <div class="col-md-1">{{ visibility }}</div>
       </div>
-      <div class="row">
-        <div class="col-md-3 col-md-offset-4">
-          <h5>{{time}}</h5>
-        </div>
-      </div>
-      <div class="row">
-          <div class="col-md-8 col-md-offset-2">
 
-            <p><em>{{summary}}</em></p>
 
-          </div>
-        </div>
-  </script>
+
+    </div>
+  </div>
+</script>
+
+
+
+
+
+  <!-- <div class='row'>
+    <h3>Position: ({{City}})</h3>
+  </div>
+  <div class="row">
+    <div class="col-md 6">
+      <img src= "images/{{ icon }}.jpg" alt={{icon}} class="img-responsive">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3 col-md-offset-4">
+      <h5>{{time}}</h5>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+
+      <p><em>{{summary}}</em></p>
+
+    </div>
+  </div>
+</script> -->
 
 
 
@@ -70,4 +113,6 @@
 <script src="js/config.js"></script>
 <script src="js/app.js"></script>
 
+
 </body>
+</html>

@@ -1,3 +1,4 @@
+var cityLocation = null;
 $(document).ready(function(){
   var baseUrlGoogle = 'https://maps.googleapis.com/maps/api/geocode/json?address=';
   var baseUrlForecast = 'https://api.forecast.io/forecast/'
@@ -40,6 +41,7 @@ $(document).ready(function(){
 
       function getCoordinates(){
         var city = $('#city-zip').val();
+        cityLocation = city;
         console.log("city: ",city);
         var ajaxOptions = {
               url: buildUrlGoogle(city),
@@ -65,13 +67,24 @@ $(document).ready(function(){
     }
       function successHandlerShowWeather(data){
         // this will put the results in the html
+
         var source = $('#weather-results').html();
-        var template = Handelbars.compile(source);
+        var template = Handlebars.compile(source);
         var extractedData = {
-          city: "need to fix",
+          city: cityLocation,
+          icon: data.currently.icon,
           summary: data.currently.summary,
           time: data.currently.time,
+          percipitationIntensity: data.currently.precipIntensity,
+          percipitationProbability: data.currently.precipProbability,
+          temprature: data.currently.temperature,
+          humidity: data.currently.humidity,
+          visibility: data.currently.visibility,
+          cloudCover: data.currently.cloudCover,
+          ozone: data.currently.ozone,
+
         };
+        console.log(extractedData)
         var html = template(extractedData);
         $('#output').html(html);
       }
