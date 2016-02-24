@@ -81,7 +81,7 @@ $(document).ready(function(){
           humidity: data.currently.humidity,
           visibility: data.currently.visibility,
           cloudCover: data.currently.cloudCover,
-          ozone: data.currently.ozone,
+        
 
         };
         console.log(extractedData)

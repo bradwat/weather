@@ -9,31 +9,46 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.js"></script>
   <script src=""></script>
   <title>GO OUTSIDE? OR,STAY IN,AND STREAM?</title>
-
 </head>
 <body>
-  <header><h1>GO OUTSIDE??? OR STAY IN AND,STREAM???</h1></header>
+  <header>GO OUTSIDE??? OR, STAY IN AND,STREAM???</header>
   <button class="js-geolocation" style="display: none;">Use Your Location</button>
-  <IMG id="hdimg" SRC="images/mountain.jpg">
-    <IMG id="hdimg" SRC="images/cloudy.jpg">
 
-      <div class='container'>
-        <div class='row'>
-          <div class='form-group'>
-            <label><h3>City/zip</h3></label>
-            <input type="text" class='form-control' id='city-zip' name='city-zip'>
-          </div>
-          <button class="btn btn-default" id='get-weather'>Veg Out?</button>
-        </div>
-        <div id="map"></div>
-        <div id="output"></div>
-
-
-      </div>
-    </div>
+  <div id="image-table">
+    <table>
+      <tr>
+        <td style="padding:5px">
+          <img src="images/mountain.jpg">
+        </td>
+        <td style="padding:5px">
+          <img src="images/spongebob.jpg">
+        </td>
+      </tr>
+    </table>
   </div>
+  <div class='container'>
+    <div class='row'>
+      <div class='form-group'>
+        <label><h3>Where are you?</h3></label>
+        <span class="input input--haruki">
+	<input class="input__field input__field--haruki" type="text" id="input-1" />
+	<label class="input__label input__label--haruki" for="input-1">
+		<span class="input__label-content input__label-content--haruki"><h5>City/zip?<h5></span>
+	</label>
+</span>
+      </div>
+      <button class="btn btn-default" id='get-weather'>Veg Out?/Go play?</button>
+    </div>
+    <div id="map"></div>
+    <div id="output"></div>
 
+
+
+  </div>
 </div>
+</div>
+</div>
+
 
 <script>
 function initMap() {
@@ -46,65 +61,65 @@ function initMap() {
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"
 async defer></script>
-
-
 <script id='weather-results' type='text/x-handlebars-template'>
   <div class="container">
     <div class="row City">
-        <div class="col-md-2"><h4>City</h4>{{ city }}</div>
-      </div>
-            <div class="row Summary">
-        <div class="col-md-2"><h4>Summary</h4>{{ summary }}</div>
+      <div class="col-md-2"><h4>City/zip</h4>{{ city }}</div>
+    </div>
+    <div class="row Summary">
+      <div class="col-md-2"><h4>Summary</h4>{{ summary }}</div>
     </div>
     <div class="row Time">
-        <div class="col-md-1">{{ time }}</div>
+      <div class="col-md-2"><h4>Time</h4>{{ time }}</div>
     </div>
     <div class="row percipitationProbability">
-        <div class="col-md-1">{{ percipitationProbability }}</div>
+      <div class="col-md-2"><h4>chance Of rain</h4>{{ percipitationProbability }}</div>
     </div>
     <div class="row percipitationIntensity">
-        <div class="col-md-1">{{ percipitationIntensity }}</div>
+      <div class="col-md-1"><h4>Percipitation Intensity</h4>{{ percipitationIntensity }}</div>
     </div>
     <div class="row temprature">
-        <div class="col-md-1">{{ temprature }}</div>
+      <div class="col-md-2"><h4>Temp</h4>{{ temprature }}</div>
     </div>
-    <div class="row humidity">
-        <div class="col-md-1">{{ humidity }}</div>
-    </div>
-    <div class="visibility">
-        <div class="col-md-1">{{ visibility }}</div>
-      </div>
-
-
-
+    <div class="col-md-2"><h4>Humidity</h4>{{ humidity }}</div>
+    <div id="image-table">
+      <table>
+        <tr>
+          <td style="padding:5px">
+            <img src="images/family-guy-tv.jpg">
+          </td>
+        </tr>
+      </table>
     </div>
   </div>
+</div>
+</div>
 </script>
 
 
 
 
 
-  <!-- <div class='row'>
-    <h3>Position: ({{City}})</h3>
-  </div>
-  <div class="row">
-    <div class="col-md 6">
-      <img src= "images/{{ icon }}.jpg" alt={{icon}} class="img-responsive">
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-3 col-md-offset-4">
-      <h5>{{time}}</h5>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
+<!-- <div class='row'>
+<h3>Position: ({{City}})</h3>
+</div>
+<div class="row">
+<div class="col-md 6">
+<img src= "images/{{ icon }}.jpg" alt={{icon}} class="img-responsive">
+</div>
+</div>
+<div class="row">
+<div class="col-md-3 col-md-offset-4">
+<h5>{{time}}</h5>
+</div>
+</div>
+<div class="row">
+<div class="col-md-8 col-md-offset-2">
 
-      <p><em>{{summary}}</em></p>
+<p><em>{{summary}}</em></p>
 
-    </div>
-  </div>
+</div>
+</div>
 </script> -->
 
 
