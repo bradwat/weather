@@ -126,3 +126,6 @@ margin-top: 50px;
 .input--filled .input__label--haruki::after {
 	transform: translate3d(0, 0.5em, 0);
 }
+hr{
+  border-color: red;
+}

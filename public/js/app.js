@@ -42,7 +42,7 @@ $(document).ready(function(){
       function getCoordinates(){
         var city = $('#city-zip').val();
         cityLocation = city;
-        console.log("city: ",city);
+        console.log("city: ",cityLocation);
         var ajaxOptions = {
               url: buildUrlGoogle(city),
             //dataType: 'jsonp',
@@ -74,14 +74,14 @@ $(document).ready(function(){
           city: cityLocation,
           icon: data.currently.icon,
           summary: data.currently.summary,
-          time: data.currently.time,
-          percipitationIntensity: data.currently.precipIntensity,
-          percipitationProbability: data.currently.precipProbability,
+          time:moment(data.currently.time*1000).format('MMMM Do YYYY, h:mm:ss a'),
+          precipitationIntensity: data.currently.precipIntensity,
+          precipitationProbability: data.currently.precipProbability,
           temprature: data.currently.temperature,
           humidity: data.currently.humidity,
           visibility: data.currently.visibility,
           cloudCover: data.currently.cloudCover,
-        
+
 
         };
         console.log(extractedData)

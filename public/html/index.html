@@ -7,8 +7,8 @@
   <script src="https://code.jquery.com/jquery-1.12.0.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.js"></script>
-  <script src=""></script>
-  <title>GO OUTSIDE? OR,STAY IN,AND STREAM?</title>
+    </script>
+    <title>GO OUTSIDE? OR,STAY IN,AND STREAM?</title>
 </head>
 <body>
   <header>GO OUTSIDE??? OR, STAY IN AND,STREAM???</header>
@@ -31,9 +31,9 @@
       <div class='form-group'>
         <label><h3>Where are you?</h3></label>
         <span class="input input--haruki">
-	<input class="input__field input__field--haruki" type="text" id="input-1" />
+	<input class="input__field input__field--haruki" type="text" id="city-zip" />
 	<label class="input__label input__label--haruki" for="input-1">
-		<span class="input__label-content input__label-content--haruki"><h5>City/zip?<h5></span>
+		<span class="input__label-content input__label-content--haruki"><h5>City?<h5></span>
 	</label>
 </span>
       </div>
@@ -41,9 +41,6 @@
     </div>
     <div id="map"></div>
     <div id="output"></div>
-
-
-
   </div>
 </div>
 </div>
@@ -64,30 +61,33 @@ async defer></script>
 <script id='weather-results' type='text/x-handlebars-template'>
   <div class="container">
     <div class="row City">
-      <div class="col-md-2"><h4>City/zip</h4>{{ city }}</div>
+      <div class="col-md-2"><h4>City:</h4><h4>{{ city }}</h4></div>
     </div>
     <div class="row Summary">
-      <div class="col-md-2"><h4>Summary</h4>{{ summary }}</div>
+      <div class="col-md-2"><h4>Summary:</h4><h4>{{ summary }}</h4></div>
     </div>
     <div class="row Time">
-      <div class="col-md-2"><h4>Time</h4>{{ time }}</div>
+      <div class="col-md-2"><h4>Time:</h4><h4>{{ time }}</h4></div>
     </div>
-    <div class="row percipitationProbability">
-      <div class="col-md-2"><h4>chance Of rain</h4>{{ percipitationProbability }}</div>
+    <div class="row precipitationProbability">
+      <div class="col-md-2"><h4>Chance of rain:</h4><h4>{{ precipitationProbability }}</h4></div>
     </div>
-    <div class="row percipitationIntensity">
-      <div class="col-md-1"><h4>Percipitation Intensity</h4>{{ percipitationIntensity }}</div>
+    <div class="row precipitationIntensity">
+      <div class="col-md-1"><h4>Precipitation Intensity:</h4><h4>{{ precipitationIntensity }}</h4></div>
     </div>
     <div class="row temprature">
-      <div class="col-md-2"><h4>Temp</h4>{{ temprature }}</div>
+      <div class="col-md-2"><h4>Temp:</h4><h4>{{ temprature }}</h4></div>
     </div>
-    <div class="col-md-2"><h4>Humidity</h4>{{ humidity }}</div>
+    <div class="row">
+    <div class="col-md-2"><h4>Humidity:</h4><h4>{{ humidity }}</h4></div>
+  </div>
+    <hr>
     <div id="image-table">
       <table>
         <tr>
           <td style="padding:5px">
             <img src="images/family-guy-tv.jpg">
-          </td>
+            </td>
         </tr>
       </table>
     </div>
